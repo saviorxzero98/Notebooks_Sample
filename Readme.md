@@ -13,7 +13,7 @@
     * [REST Book](https://marketplace.visualstudio.com/items?itemName=tanhakabir.rest-book)
 * C# Runtime
     * [.NET 6+](https://dotnet.microsoft.com/en-us/download/dotnet)
-* JavaScript、TypeScript Runtime
+* NodeJS Runtime
     * [NodeJS v12+](https://nodejs.org/en)
 * Python Runtime
     * [Python 3.7+](https://www.python.org/downloads/)
