@@ -1,0 +1,124 @@
+{
+    "cells": [
+        {
+            "language": "markdown",
+            "source": [
+                "# Climbing Stairs\r\n\r\nYou are climbing a staircase. It takes `n` steps to reach the top.\r\n\r\nEach time you can either climb `1` or `2` steps. In how many distinct ways can you climb to the top?\r\n\r\n \r\n\r\n**Example 1:**\r\n\r\n```\r\nInput: n = 2\r\nOutput: 2\r\nExplanation: There are two ways to climb to the top.\r\n1. 1 step + 1 step\r\n2. 2 steps\r\n```\r\n\r\n**Example 2:**\r\n\r\n```\r\nInput: n = 3\r\nOutput: 3\r\nExplanation: There are three ways to climb to the top.\r\n1. 1 step + 1 step + 1 step\r\n2. 1 step + 2 steps\r\n3. 2 steps + 1 step\r\n```\r\n\r\n \r\n\r\n**Constraints:**\r\n\r\n* `1 <= n <= 45`\r\n"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "typescript",
+            "source": [
+                "function climbStairs(n: number): number {\r\n    if (n === 0 || n === 1) {\r\n        return n;\r\n    }\r\n    const dp: number[] = [];\r\n    dp[0] = 0;\r\n    dp[1] = 1;\r\n    dp[2] = 2;\r\n\r\n    for (let i = 3; i <= n; i++) {\r\n        dp[i] = dp[i-1] + dp[i-2];\r\n    }\r\n    return dp[n];\r\n};"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "typescript",
+            "source": [
+                "let testCases = [1, 2, 3, 5];"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "typescript",
+            "source": [
+                "import { display } from 'node-kernel';\r\n\r\nfor(let i = 0; i < testCases.length; i++) {\r\n    let testCase = testCases[i];\r\n\r\n    let outputResult = `\r\n* Example ${i+1}:\r\n    * Input: s = ${testCase}\r\n    * Output: ${climbStairs(testCase)}\r\n`;\r\n\r\n    display.markdown(outputResult);\r\n}"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "text/markdown",
+                            "value": [
+                                "",
+                                "* Example 1:",
+                                "    * Input: s = 1",
+                                "    * Output: 1",
+                                ""
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "text/markdown",
+                            "value": [
+                                "",
+                                "* Example 2:",
+                                "    * Input: s = 2",
+                                "    * Output: 2",
+                                ""
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "text/markdown",
+                            "value": [
+                                "",
+                                "* Example 3:",
+                                "    * Input: s = 3",
+                                "    * Output: 3",
+                                ""
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "text/markdown",
+                            "value": [
+                                "",
+                                "* Example 4:",
+                                "    * Input: s = 5",
+                                "    * Output: 8",
+                                ""
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

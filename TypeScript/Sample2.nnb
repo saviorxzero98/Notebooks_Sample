@@ -1,0 +1,38 @@
+{
+    "cells": [
+        {
+            "language": "markdown",
+            "source": [
+                "# Luxon 使用範例"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "* **安裝套件 (npm)**\r\n\r\n```shell\r\nnpm install luxon\r\nnpm install @types/node --save-dev\r\n```\r\n\r\n* **安裝套件 (yarn)**\r\n\r\n```shell\r\nyarn add luxon\r\nyarn add @types/node --dev\r\n```"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "typescript",
+            "source": [
+                "import { DateTime } from 'luxon';\r\n\r\nlet now = DateTime.local();\r\nconsole.log('現在時間 ', now.toFormat('yyyy年MM月dd日 HH:mm:ss'));"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "現在時間  2023年10月22日 15:31:11",
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,46 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":"csharp","items":[{"aliases":[],"name":"csharp"}]}}
+
+#!markdown
+
+# 平行處理
+
+#!markdown
+
+## 準備測試資料
+
+#!csharp
+
+using System.Collections.Generic;
+
+// 準備測試資料
+List<int> data = new List<int>();
+for (int i = 0; i < 10000; i++)
+{
+    data.Add(i);
+}
+
+display(data);
+
+#!markdown
+
+## 處理測試資料
+
+#!csharp
+
+using System.Collections.Concurrent;
+
+var dict = new ConcurrentDictionary<string, int>();
+var options = new ParallelOptions()
+{
+    MaxDegreeOfParallelism = 4
+};
+
+// 
+Parallel.ForEach(data, options, (item) =>
+{
+    dict.TryAdd($"Key_{item}", item);
+});
+
+display(dict);

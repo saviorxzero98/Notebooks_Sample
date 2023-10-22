@@ -1,0 +1,92 @@
+{
+    "cells": [
+        {
+            "language": "markdown",
+            "source": [
+                "## URI Builder"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "* Sample 1"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "typescript",
+            "source": [
+                "import { Uri } from './libs/uri';\r\n\r\nlet uri1 = new Uri('https://sample.com/').replaceProtocol('http', 'ws')\r\n                                         .replaceProtocol('https', 'wss')\r\n                                         .joinPathName('user', 'mary')\r\n                                         .addQuery('id', '3');\r\n\r\nconsole.log(uri1.toString());"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "wss://sample.com/user/mary?id=3",
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "* Sample 2"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "typescript",
+            "source": [
+                "import { Uri } from './libs/uri';\r\n\r\nvar uri2 = new Uri('http://example.com.tw:8080/users?type=A');\r\nuri2 = uri2.addQuery('codeId', '中文字');\r\nuri2 = uri2.addMoreQuery({\r\n    text: '=&?',\r\n    value: '',\r\n    token: 'A123456'\r\n});\r\nuri2 = uri2.setPathName('api')\r\n           .joinPathName('users')\r\n           .setProtocol('https')\r\n           .setPort(443);\r\n\r\nconsole.log(uri2.toString());\r\nconsole.log(uri2.getQueryData());"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "https://example.com.tw:443/api/users?type=A&codeId=中文字&text=%3D%26%3F&value=&token=A123456",
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "* Sample 3"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "typescript",
+            "source": [
+                "import { Uri } from './libs/uri';\r\n\r\nlet uri3 = new Uri('%s/user/%s/views', 'https://myhost.com/', 'abc13');\r\n\r\nconsole.log(uri3.toString());\r\n"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "https://myhost.com/user/abc13/views",
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
